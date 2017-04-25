@@ -3,6 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>111-3D播放器下</title>
+
+
+<script>
+function audioAutoPlay(id){  
+    var audio = document.getElementById(id),  
+        play = function(){  
+            audio.play();  
+            document.removeEventListener("touchstart",play, false);  
+        };  
+    audio.play();  
+    document.addEventListener("WeixinJSBridgeReady", function () {  
+        play();  
+    }, false);  
+    document.addEventListener('YixinJSBridgeReady', function() {  
+        play();  
+    }, false);  
+    document.addEventListener("touchstart",play, false);  
+}  
+audioAutoPlay('Jaudio');  
+</script>
+
     <style>
         *{
             margin: 0;
@@ -126,6 +147,7 @@
 </head>
 <body>
 <ul>
+    
     <li><img src="images/jacky/1.png" alt=""></li>
     <li><img src="images/jacky/2.jpg" alt=""></li>
     <li><img src="images/jacky/3.jpg" alt=""></li>
@@ -135,5 +157,10 @@
 </ul>
 <img src="images/jacky/xin.png" class="heart">
 <audio src="images/jacky/江哥最爱的歌.mp3" autoplay="autoplay" loop="loop"></audio>
+
+<audio src="images/jacky/江哥最爱的歌.mp3" id="Jaudio" class="media-audio" autoplay preload loop="loop"></audio>  
+
+
+
 </body>
 </html>
